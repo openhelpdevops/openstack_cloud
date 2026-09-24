@@ -653,10 +653,17 @@ Use the official download page:
 Download both files. If `minisign` is installed, verify the ISO with the public
 key printed on the official VyOS Stream page:
 
+Install Minisign:
+
+```powershell
+winget install --id jedisct1.minisign -e
+```
+Close and open powershell again
+
 ```powershell
 Set-Location "$HOME\Downloads"
-minisign -Vm .\vyos-2026.03-generic-amd64.iso `
-  -P RWTR1ty93Oyontk6caB9WqmiQC4fgeyd/ejgRxCRGd2MQej7nqebHneP
+Get-ChildItem .\vyos-2026.03-generic-amd64.iso*
+minisign -Vm .\vyos-2026.03-generic-amd64.iso -P RWTR1ty93Oyontk6caB9WqmiQC4fgeyd/ejgRxCRGd2MQej7nqebHneP
 ```
 
 Continue only after `Signature and comment signature verified` is displayed.

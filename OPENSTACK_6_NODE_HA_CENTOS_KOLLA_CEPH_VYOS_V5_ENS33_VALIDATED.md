@@ -1763,14 +1763,14 @@ rm -f /tmp/ceph.pub
 `ctrl01` already exists from bootstrap:
 
 ```bash
-sudo ceph orch host add ctrl02 10.10.30.12
-sudo ceph orch host add ctrl03 10.10.30.13
-sudo ceph orch host add compute01 10.10.30.21
-sudo ceph orch host add compute02 10.10.30.22
-sudo ceph orch host add compute03 10.10.30.23
-
-sudo ceph orch host label add ctrl02 _admin
-sudo ceph orch host label add ctrl03 _admin
+sudo ceph orch host add ctrl02.openhelp.net 10.10.30.12
+sudo ceph orch host add ctrl03.openhelp.net 10.10.30.13
+sudo ceph orch host add compute01.openhelp.net 10.10.30.21
+sudo ceph orch host add compute02.openhelp.net 10.10.30.22
+sudo ceph orch host add compute03.openhelp.net 10.10.30.23
+sudo ceph orch host l
+sudo ceph orch host label add ctrl02.openhelp.net _admin
+sudo ceph orch host label add ctrl03.openhelp.net _admin
 sudo ceph orch host ls
 ```
 

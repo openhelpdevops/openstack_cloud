@@ -1473,6 +1473,17 @@ with the external-Ceph inventory guidance. It does **not** place Ceph OSDs on
 the controllers; the OSDs remain on the three computes and are managed
 separately by `cephadm`.
 
+
+On ctrl01, run these one at a time:
+```bash
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.50 hostname
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.51 hostname
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.52 hostname
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.53 hostname
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.54 hostname
+ssh -o StrictHostKeyChecking=ask cloudadmin@192.168.0.55 hostname
+```
+
 Validate inventory and connectivity:
 
 ```bash

@@ -1724,7 +1724,8 @@ Use the Ceph/storage IP of `ctrl01`, not VMnet0:
 sudo cephadm bootstrap \
   --mon-ip 10.10.30.11 \
   --ssh-user cloudadmin \
-  --log-to-file
+  --log-to-file \
+  --allow-fqdn-hostname
 ```
 
 Check the initial cluster:

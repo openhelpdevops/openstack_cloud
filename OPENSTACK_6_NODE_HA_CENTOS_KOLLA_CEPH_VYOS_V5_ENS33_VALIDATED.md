@@ -2051,7 +2051,7 @@ Run on `ctrl01` as `cloudadmin`:
 ```bash
 source /opt/kolla-venv/bin/activate
 
-kolla-ansible prechecks -i /opt/openstack/inventory/multinode
+kolla-ansible prechecks -i /opt/openstack/inventory/multinode --use-test-images
 kolla-ansible pull -i /opt/openstack/inventory/multinode
 kolla-ansible deploy -i /opt/openstack/inventory/multinode
 kolla-ansible validate-config -i /opt/openstack/inventory/multinode

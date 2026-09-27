@@ -1585,6 +1585,8 @@ enable_horizon: true
 enable_cinder: true
 enable_cinder_backup: true
 cinder_backend_ceph: true
+enable_valkey: "yes"
+cinder_coordination_backend: "valkey"
 cinder_cluster_name: "cinder-ceph-cluster"
 glance_backend_ceph: true
 nova_backend_ceph: true

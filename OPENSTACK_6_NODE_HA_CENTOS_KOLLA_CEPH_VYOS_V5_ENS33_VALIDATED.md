@@ -1437,9 +1437,9 @@ sample inventory.
 
 ```ini
 [control]
-ctrl01 ansible_host=192.168.0.50 ansible_user=cloudadmin ansible_become=true
-ctrl02 ansible_host=192.168.0.51 ansible_user=cloudadmin ansible_become=true
-ctrl03 ansible_host=192.168.0.52 ansible_user=cloudadmin ansible_become=true
+ctrl01 ansible_host=192.168.0.50 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
+ctrl02 ansible_host=192.168.0.51 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
+ctrl03 ansible_host=192.168.0.52 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
 
 [network]
 ctrl01
@@ -1447,9 +1447,9 @@ ctrl02
 ctrl03
 
 [compute]
-compute01 ansible_host=192.168.0.53 ansible_user=cloudadmin ansible_become=true
-compute02 ansible_host=192.168.0.54 ansible_user=cloudadmin ansible_become=true
-compute03 ansible_host=192.168.0.55 ansible_user=cloudadmin ansible_become=true
+compute01 ansible_host=192.168.0.53 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
+compute02 ansible_host=192.168.0.54 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
+compute03 ansible_host=192.168.0.55 ansible_user=cloudadmin ansible_become=true ansible_python_interpreter=/usr/bin/python3.12
 
 [monitoring]
 ctrl01

@@ -1781,8 +1781,10 @@ and keyring files on all three controllers.
 
 ```bash
 sudo ceph config set mon public_network 10.10.30.0/24
-sudo ceph orch apply mon --placement="ctrl01,ctrl02,ctrl03"
-sudo ceph orch apply mgr --placement="ctrl01,ctrl02,ctrl03"
+sudo ceph orch apply mon --placement="ctrl01.openhelp.net,ctrl02.openhelp.net,ctrl03.openhelp.net"
+sudo ceph orch apply mgr --placement="ctrl01.openhelp.net,ctrl02.openhelp.net,ctrl03.openhelp.net"
+sudo ceph orch ps
+sudo ceph -s
 ```
 
 Wait until the cluster converges:

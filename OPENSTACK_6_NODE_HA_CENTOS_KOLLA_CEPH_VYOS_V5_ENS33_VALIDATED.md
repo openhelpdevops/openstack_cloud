@@ -1703,6 +1703,9 @@ provision Ceph itself. This phase uses Ceph's own `cephadm` orchestrator.
 ### 16.1 Install the maintained Ceph series on `ctrl01`
 
 ```bash
+sudo dnf install -y python3-jinja2
+/usr/bin/python3 -c 'import jinja2; print(jinja2.__version__)'
+sudo /usr/bin/python3 "$(command -v cephadm)" version
 sudo dnf search release-ceph
 sudo dnf install -y centos-release-ceph-tentacle
 sudo dnf install -y cephadm ceph-common

@@ -1832,9 +1832,9 @@ verified 35 GB `/dev/sdb`.
 > names, disk capacity, emptiness and `Available: Yes` result first.
 
 ```bash
-sudo ceph orch daemon add osd compute01:/dev/sdb
-sudo ceph orch daemon add osd compute02:/dev/sdb
-sudo ceph orch daemon add osd compute03:/dev/sdb
+sudo ceph orch daemon add osd compute01.openhelp.net:/dev/sdb
+sudo ceph orch daemon add osd compute02.openhelp.net:/dev/sda
+sudo ceph orch daemon add osd compute03.openhelp.net:/dev/sdb
 ```
 
 Do not use `--all-available-devices` in a learning cluster where another disk

@@ -1263,6 +1263,12 @@ sudo firewall-cmd --permanent --zone=trusted --change-interface=ens38
 sudo firewall-cmd --reload
 sudo firewall-cmd --get-active-zones
 ```
+## Disable ipv6
+
+```bash
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+```
 
 If your verified names differ, use those names. Do not assign `ens39` a host
 IP or normal routed firewall role; Kolla/OVS owns it after deployment.
@@ -1390,6 +1396,7 @@ python -m pip install --upgrade pip
 
 ```bash
 pip install 'git+https://opendev.org/openstack/kolla-ansible@stable/2026.1'
+pip install 'ansible-core>=2.16,<2.18'   # match the version your branch requires
 kolla-ansible install-deps
 kolla-ansible --version
 ```

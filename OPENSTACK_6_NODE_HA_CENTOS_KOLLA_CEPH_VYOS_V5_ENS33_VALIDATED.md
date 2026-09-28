@@ -2080,8 +2080,8 @@ if nova is failing in between, restart nova in all the 3 controller nodes
 
 ```bash
 ssh ctrl01 'sudo docker restart nova_api'
-ssh ctrl01 'sudo docker restart nova_api'
-ssh ctrl01 'sudo docker restart nova_api'
+ssh ctrl02 'sudo docker restart nova_api'
+ssh ctrl03 'sudo docker restart nova_api'
 ```
 
 Then execute deployment command again

@@ -2076,6 +2076,16 @@ Wait for that command to finish successfully. Then rerun:
 kolla-ansible deploy -i /opt/openstack/inventory/multinode
 ```
 
+if nova is failing in between, restart nova in all the 3 controller nodes
+
+```bash
+ssh ctrl01 'sudo docker restart nova_api'
+ssh ctrl01 'sudo docker restart nova_api'
+ssh ctrl01 'sudo docker restart nova_api'
+```
+
+Then execute deployment command again
+
 ### 18.1 Install the matching OpenStack CLI
 
 ```bash
@@ -2085,6 +2095,8 @@ pip install python-openstackclient \
 chmod 0600 /etc/kolla/clouds.yaml
 export OS_CLIENT_CONFIG_FILE=/etc/kolla/clouds.yaml
 ```
+
+
 
 ### 18.2 Validate core services
 

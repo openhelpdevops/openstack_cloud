@@ -2062,7 +2062,19 @@ kolla-ansible post-deploy -i /opt/openstack/inventory/multinode
 
 Run these sequentially. Do not bypass a failed precheck. Correct the reported
 DNS, interface, MTU, time, virtualization, disk, firewall, or Ceph issue and
-rerun the failed command.
+rerun the failed command
+
+if mariadb fails execute the below command and redo commands above:-
+
+```bash
+source /opt/kolla-venv/bin/activate
+kolla-ansible mariadb-recovery -i /opt/openstack/inventory/multinode
+```
+
+Wait for that command to finish successfully. Then rerun:
+```bash
+kolla-ansible deploy -i /opt/openstack/inventory/multinode
+```
 
 ### 18.1 Install the matching OpenStack CLI
 

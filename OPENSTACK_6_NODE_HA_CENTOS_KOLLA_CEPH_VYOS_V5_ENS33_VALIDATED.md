@@ -1380,7 +1380,7 @@ Run the entire section as `cloudadmin` on `ctrl01`.
 
 ```bash
 sudo dnf install -y \
-  git python3-devel libffi-devel gcc openssl-devel python3-libselinux
+  git python3-devel libffi-devel gcc openssl-devel python3-libselinux python3-docker
 ```
 
 ### 12.2 Create a dedicated Python virtual environment

@@ -2109,6 +2109,20 @@ openstack --os-cloud kolla-admin hypervisor list
 openstack --os-cloud kolla-admin network agent list
 openstack --os-cloud kolla-admin volume service list
 ```
+you may have to restart the below services if it is down
+
+```bash
+ ssh ctrl02 'sudo docker restart nova_api
+ ssh ctrl03 'sudo docker restart nova_api'
+ ssh ctrl01 'sudo docker restart nova_api'
+ ssh ctrl01 'sudo docker restart neutron_server'
+ ssh ctrl02 'sudo docker restart neutron_server'
+ ssh ctrl03 'sudo docker restart neutron_server'
+ ssh ctrl01 'sudo docker restart cinder_api'
+ ssh ctrl02 'sudo docker restart cinder_api'
+ ssh ctrl03 'sudo docker restart cinder_api'
+```
+
 
 Expected high-level state:
 

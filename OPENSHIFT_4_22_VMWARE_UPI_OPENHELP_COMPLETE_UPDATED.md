@@ -1256,7 +1256,7 @@ Also obtain the matching Windows client if using Windows `oc`. Download the RHCO
 
 ```powershell
 scp C:\OCP-Lab\Downloads\openshift-install-linux.tar.gz cloudadmin@192.168.0.50:/home/cloudadmin/ocp-lab/downloads/
-scp C:\OCP-Lab\Downloads\openshift-client-linux.tar.gz cloudadmin@192.168.0.50:/home/cloudadmin/ocp-lab/downloads/
+scp C:\OCP-Lab\Downloads\openshift-client-linux-amd64-rhel9.tar.gz cloudadmin@192.168.0.50:/home/cloudadmin/ocp-lab/downloads/
 scp C:\OCP-Lab\Downloads\sha256sum.txt cloudadmin@192.168.0.50:/home/cloudadmin/ocp-lab/downloads/
 scp C:\OCP-Lab\Downloads\release.txt cloudadmin@192.168.0.50:/home/cloudadmin/ocp-lab/downloads/
 ```
@@ -1270,7 +1270,7 @@ Finish downloads before creating time-sensitive Ignition assets.
 ```bash
 cd /home/cloudadmin/ocp-lab/downloads
 sha256sum openshift-install-linux.tar.gz
-sha256sum openshift-client-linux.tar.gz
+sha256sum openshift-client-linux-amd64-rhel9.tar.gz
 less sha256sum.txt
 ```
 
@@ -1279,7 +1279,7 @@ Compare each full SHA256 value against its matching archive entry in the vendor 
 ```bash
 mkdir -p /home/cloudadmin/ocp-lab/downloads/tools
 tar -xzf openshift-install-linux.tar.gz -C /home/cloudadmin/ocp-lab/downloads/tools
-tar -xzf openshift-client-linux.tar.gz -C /home/cloudadmin/ocp-lab/downloads/tools
+tar -xzf openshift-client-linux-amd64-rhel9.tar.gz -C /home/cloudadmin/ocp-lab/downloads/tools
 sudo install -m 0755 /home/cloudadmin/ocp-lab/downloads/tools/openshift-install /usr/local/bin/openshift-install
 sudo install -m 0755 /home/cloudadmin/ocp-lab/downloads/tools/oc /usr/local/bin/oc
 sudo install -m 0755 /home/cloudadmin/ocp-lab/downloads/tools/kubectl /usr/local/bin/kubectl

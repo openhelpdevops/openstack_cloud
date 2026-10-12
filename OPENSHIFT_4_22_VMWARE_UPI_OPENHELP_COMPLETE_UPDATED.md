@@ -1933,6 +1933,12 @@ chmod 600 /home/cloudadmin/ocp-lab/cluster/worker03.ign
 ### Step 45 — verify the pre-installation gate
 
 ```bash
+getsebool haproxy_connect_any
+setsebool -P haproxy_connect_any 1
+systemctl restart haproxy
+firewall-cmd --list-ports
+firewall-cmd --permanent --add-port={6443,22623,80,443}/tcp
+firewall-cmd --reload
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 curl --fail http://172.16.50.2:8080/health.txt
 dig @192.168.0.10 api-int.ocp.openhelp.net A +short

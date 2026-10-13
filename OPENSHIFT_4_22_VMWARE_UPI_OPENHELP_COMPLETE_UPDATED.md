@@ -2312,6 +2312,14 @@ Expected hostnames: bootstrap, master01 and worker01 under `ocp.openhelp.net`. D
 
 ```bash
 openshift-install wait-for bootstrap-complete --dir=/home/cloudadmin/ocp-lab/cluster --log-level=info
+
+for fresh reinstallation wipoff file system from coreos console after booting
+
+   lsblk
+   sudo wipefs -a /dev/nvme0n1
+   sudo sgdisk --zap-all /dev/nvme0n1
+
+
 ```
 
 Typical progress:
@@ -2343,6 +2351,16 @@ oc --kubeconfig=/home/cloudadmin/ocp-lab/cluster/auth/kubeconfig describe csr EX
 oc --kubeconfig=/home/cloudadmin/ocp-lab/cluster/auth/kubeconfig get csr EXACT_CSR_NAME -o jsonpath='{.spec.request}' > /home/cloudadmin/ocp-lab/csr-request.base64
 base64 --decode /home/cloudadmin/ocp-lab/csr-request.base64 > /home/cloudadmin/ocp-lab/csr-request.pem
 openssl req -in /home/cloudadmin/ocp-lab/csr-request.pem -noout -subject -text
+```
+
+## Example commands
+```bash
+oc --request-timeout=20s get nodes -o wide
+oc --request-timeout=20s get csr -o wide
+oc adm certificate approve csr-8fhml
+oc adm certificate approve csr-bqhhq
+oc adm certificate approve csr-glchz
+oc adm certificate approve csr-kh54v
 ```
 
 | CSR type | Expected signer | What to verify |

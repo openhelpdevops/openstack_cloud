@@ -277,6 +277,22 @@ ln -s master /var/lib/tftpboot/pxelinux.cfg/01-REPLACE_MASTER03_MAC
 ln -s worker /var/lib/tftpboot/pxelinux.cfg/01-REPLACE_WORKER01_MAC
 ln -s worker /var/lib/tftpboot/pxelinux.cfg/01-REPLACE_WORKER02_MAC
 ln -s worker /var/lib/tftpboot/pxelinux.cfg/01-REPLACE_WORKER03_MAC
+
+
+cd /var/lib/tftpboot/pxelinux.cfg || exit
+
+ln -sfn bootstrap 01-bc-24-11-04-89-92
+
+ln -sfn master 01-bc-24-11-58-52-8a
+ln -sfn master 01-bc-24-11-73-0a-0b
+ln -sfn master 01-bc-24-11-94-ab-66
+
+ln -sfn worker 01-bc-24-11-12-6c-62
+ln -sfn worker 01-bc-24-11-65-ea-88
+ln -sfn worker 01-bc-24-11-bb-f6-ca
+
+
+
 ```
 
 **Do not run this block unchanged.** The placeholder names intentionally cannot match a real PXE client's MAC. If old links or UUID/IP-specific PXE files are already in this directory, archive them first; PXELINUX might choose them ahead of these links. Verify exactly seven correct links and the four plain files:

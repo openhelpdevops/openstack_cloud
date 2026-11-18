@@ -114,6 +114,32 @@ The three Ignition files must be generated for **this** `ocp-test` cluster and s
 
 ## Step 4 — Create the Kea DHCP configuration by hand
 
+
+Run on the bastion:
+dnf install -y kea
+rpm -q kea
+mkdir -p /root/ocp-config-backup
+cp -a /etc/kea/kea-dhcp4.conf /root/ocp-config-backup/kea-dhcp4.conf.before-pxe
+vi /etc/kea/kea-dhcp4.conf
+
+In vi, use the complete seven-node Kea configuration in Step 4 of your RHEL 10 PXE guide. Replace all seven MAC placeholders with the real Proxmox MACs. It binds DHCP to ens19, advertises pxelinux.0, and gives nodes 192.168.0.30 as their only DNS server.
+
+Then validate and start it:
+jq -e . /etc/kea/kea-dhcp4.conf
+kea-dhcp4 -t /etc/kea/kea-dhcp4.conf
+firewall-cmd --get-zone-of-interface=ens19
+
+If the last command prints internal, continue:
+firewall-cmd --permanent --zone=internal --add-service=dhcp
+firewall-cmd --reload
+systemctl enable --now kea-dhcp4
+systemctl status kea-dhcp4 --no-pager -l
+ss -lunp | grep ':67'
+
+Expect active (running) and a UDP port 67 listener. If Kea’s configuration test reports an error, fix it before starting the service. docs.redhat.com
+
+
+
 Check that `ens19` is on the isolated cluster bridge and there is no other DHCP server answering there:
 
 ```bash

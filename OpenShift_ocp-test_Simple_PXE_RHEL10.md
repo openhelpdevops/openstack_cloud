@@ -91,20 +91,25 @@ If RPM lists different source paths, use those paths in the two `install` comman
 Use the **matching** RHCOS PXE images already downloaded from your `openshift-install coreos print-stream-json` step. The files must be exactly:
 
 ```text
-/var/www/html/ocp/rhcos/live-kernel
-/var/www/html/ocp/rhcos/live-initramfs.img
-/var/www/html/ocp/rhcos/live-rootfs.img
-/var/www/html/ocp/ignition/bootstrap.ign
-/var/www/html/ocp/ignition/master.ign
-/var/www/html/ocp/ignition/worker.ign
+[root@bastion ~]# ll /var/www/html/ocp/rhcos/
+total 1426256
+-rw-r--r--. 1 root root  109518236 Nov 18 15:46 rhcos-live-initramfs.x86_64.img
+-rw-r--r--. 1 root root   15190824 Nov 18 15:46 rhcos-live-kernel.x86_64
+-rw-r--r--. 1 root root 1320582656 Nov 18 15:47 rhcos-live-rootfs.x86_64.img
+[root@bastion ~]# ll /var/www/html/ocp/ignition
+total 320
+-rw-r--r--. 1 root root 317634 Nov 18 17:13 bootstrap.ign
+-rw-r--r--. 1 root root   1718 Nov 18 17:13 master.ign
+-rw-r--r--. 1 root root   1718 Nov 18 17:13 worker.ign
+
 ```
 
 Check each HTTP location. Every response must be **200 OK**:
 
 ```bash
-curl -fI http://172.16.50.2:8080/ocp/rhcos/live-kernel
-curl -fI http://172.16.50.2:8080/ocp/rhcos/live-initramfs.img
-curl -fI http://172.16.50.2:8080/ocp/rhcos/live-rootfs.img
+curl -fI http://172.16.50.2:8080/ocp/rhcos/rhcos-live-kernel.x86_64
+curl -fI http://172.16.50.2:8080/ocp/rhcos/rhcos-live-initramfs.x86_64.img
+curl -fI http://172.16.50.2:8080/ocp/rhcos/rhcos-live-rootfs.x86_64.img
 curl -fI http://172.16.50.2:8080/ocp/ignition/bootstrap.ign
 curl -fI http://172.16.50.2:8080/ocp/ignition/master.ign
 curl -fI http://172.16.50.2:8080/ocp/ignition/worker.ign

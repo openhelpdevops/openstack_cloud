@@ -203,6 +203,15 @@ Kea offers addresses only to these seven MACs because no dynamic pool is defined
 ```bash
 jq -e . /etc/kea/kea-dhcp4.conf >/dev/null
 kea-dhcp4 -t /etc/kea/kea-dhcp4.conf
+
+  580  ln -s rhcos-9.8.20261026-0-live-kernel.x86_64 rhcos-live-kernel.x86_64
+
+
+  583  ln -s rhcos-9.8.20261026-0-live-rootfs.x86_64.img rhcos-live-rootfs.x86_64.img
+
+  585  ln -s rhcos-9.8.20261026-0-live-initramfs.x86_64.img rhcos-live-initramfs.x86_64.img
+  590  restorecon -RFv /var/www/html/ocp/rhcos
+
 ```
 
 ## Step 5 — Create three role PXE files
